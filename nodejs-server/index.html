@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>Restaurants for food ordering app</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <form action="/insert" method="POST" name="myForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+                    </div>
+                    <div class="form-group1">
+                        <label for="menu">Menu</label>
+
+
+                        <table id="myTable" class=" table order-list">
+                            <thead>
+                                <tr>
+                                    <td>Food</td>
+                                    <td>Description</td>
+                                    <td>Price</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-sm-5">
+                                        <input type="text" title="food" id="food[]" name="food[]"
+                                            class="form-control" />
+                                    </td>
+                                    <td class="col-sm-4">
+                                        <input type="text" title="description[]" id="description[]" name="description[]"
+                                            class="form-control" />
+                                    </td>
+                                    <td class="col-sm-3">
+                                        <input type="text" title="price" id="price[]" name="price[]"
+                                            class="form-control" />
+                                    </td>
+                                    <td class="col-sm-2"><a class="deleteRow"></a>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="5" style="text-align: left;">
+                                        <input type="button" class="btn btn-lg btn-block " id="addrow"
+                                            value="Adauga un nou fel de mancare" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <button type="submit" class="btn btn-primary" id="btn">Adauga</button>
+                        
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <a href="/getRestaurants">Get Restaurants</a>
+            
+        </div>
+        <div class="row">
+            
+            <a href="/orders">Get Orders</a>
+        </div>
+        <div class="row">
+            
+            
+        </div>
+
+
+    </div>
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+<script>
+    $(document).ready(function () {
+        var counter = 0;
+
+        $("#addrow").on("click", function () {
+            var newRow = $("<tr>");
+            var cols = "";
+
+            cols += '<td><input type="text" title="food" id="food[]" class="form-control" name="food[]' + counter + '"/></td>';
+            cols += '<td><input type="text" title="description" id="description[]" class="form-control" name="description[]' + counter + '"/></td>';
+            cols += '<td><input type="text" title="price" id="price[]" class="form-control" name="price[]' + counter + '"/></td>';
+
+            cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+            newRow.append(cols);
+            $("table.order-list").append(newRow);
+            counter++;
+
+
+        });
+
+
+
+        $("table.order-list").on("click", ".ibtnDel", function (event) {
+            $(this).closest("tr").remove();
+            counter -= 1
+        });
+
+
+
+
+    });
+
+
+
+    function calculateRow(row) {
+        var price = +row.find('input[name^="price"]').val();
+
+    }
+
+    function calculateGrandTotal() {
+        var grandTotal = 0;
+        $("table.order-list").find('input[name^="price"]').each(function () {
+            grandTotal += +$(this).val();
+        });
+        $("#grandtotal").text(grandTotal.toFixed(2));
+    }
+
+    
+
+
+
+
+
+
+
+
+</script>
+
+</html>
