@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:id="@+id/app_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageview_menu"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            />
+
+        <TextView
+            android:id="@+id/textview_menu_food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:text="Restaurant Name"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_description_black_24dp" />
+            <TextView
+                android:id="@+id/textview_menu_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Description"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_attach_money_black_24dp" />
+            <TextView
+                android:id="@+id/textview_menu_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Price"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:id="@+id/number_button"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="18dp"
+            app:textSize="8sp"
+            app:backGroundColor="@color/BGColor"
+            app:initialNumber="1"
+            app:finalNumber="20"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnCart"
+            android:src="@drawable/ic_shopping_cart_black_24dp"
+            app:backgroundTint="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:layout_gravity="bottom|right|end"
+
+
+            />
+
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

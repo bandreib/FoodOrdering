@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#431e4c</color>
+    <color name="colorPrimaryDark">#5d2a6b</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="BGColor">#863d99</color>
+    <color name="overlayActionBar">#c29ecc</color>
+
+    <color name="myTextColor">#AFAFAF</color>
+</resources>
